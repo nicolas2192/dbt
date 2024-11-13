@@ -1,3 +1,66 @@
+# data build tool
+
+Data build tool (dbt) is an open-source command line tool that helps analysts and engineers transform data in their warehouse more effectively.
+It takes care of DDL commands while you can focus on implementing the business logic and designing great models. The code lies in git and it runs in the data warehouse. dbt is just an interface that facilitates the process.
+
+## Tips & Tricks
+
+In the IDE type underscore `_` twice to show the intelligence dropdown.
+
+## :file_folder: Project Structure
+dbt Projects usually have the following structure
+
+```
+└── dbt-cloud-account
+    ├── analyses
+    ├── macros
+    ├── models
+    │   ├── stg_customers.sql
+    │   ├── customers.sql
+    │   └── schema.yml
+    ├── seeds
+    ├── snapshots
+    ├── target
+    ├── test
+    │   └── .gitkeep
+    ├── .gitignore
+    ├── README.md
+    └── dbt_project.yml
+        ├── raw
+        ├── processed
+        └── results
+```
+
+### :wrench: dbt_project.yml
+This is the project's configuration file. Here we set the project name, materialization modes, etc. If you don’t specify the materialization method, objects will be created as views (default)
+
+
+Materialization example, code snippet within dbt_project.yml
+
+```
+models:
+  jaffle_shop:
+    +materialized: table
+```
+
+### :: Models
+Models folder will have all the queries that create the model.
+CTEs are encouraged, as well as simple and verbose queries. Similar to the Python Zen, straightforward and simple code is prefered over complex queries. 
+
+As a best practice, cleaning and transformations should be considered two separate processes, meaning you should have queries that handle the cleaning step and another set of queries that will handle the transformation.
+
+Materialization can be set by either adding the following header at the top of the sql file 
+`{{ config(materialized='view') }}` or updating the dbt_project.yml file
+
+
+### :: Tests
+Typical tests to ensure data quality. Tests such as checks such as count, duplicates, unique keys.
+
+
+
+
+
+
 # Data Project README file
 
 The README file describes the essence of the project playing the most important role. Most visitors will simply scroll down about twice on the README and leave if they are not interested. So, the README file should provide the reason **why** to checkout your project!!!). 
