@@ -1,5 +1,14 @@
 # data build tool
 
+
+Links:
+
+- https://docs.getdbt.com/docs/deploy/continuous-integration
+- https://docs.getdbt.com/guides/redshift?step=7
+- https://docs.getdbt.com/docs/cloud/dbt-cloud-ide/ide-user-interface#basic-layout
+- https://www.youtube.com/watch?v=5rNquRnNb4E&list=PLy4OcwImJzBLJzLYxpxaPUmCWp8j1esvT
+- https://www.youtube.com/watch?v=OLXkGB7krGo
+
 Data build tool (dbt) is an open-source command line tool that helps analysts and engineers transform data in their warehouse more effectively.
 It takes care of DDL commands while you can focus on implementing the business logic and designing great models. The code lies in git and it runs in the data warehouse. dbt is just an interface that facilitates the process.
 
