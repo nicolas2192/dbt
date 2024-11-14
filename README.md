@@ -1,8 +1,8 @@
-# data build tool
+# data build tool 
 <p align="center">
   <img width="96" height="75" src="https://www.getdbt.com/_next/image?url=%2Fimg%2Flogos%2Fdbt-logo.svg&w=96&q=75">
 </p>
----
+
 
 Links:
 
@@ -20,7 +20,10 @@ It takes care of DDL commands while you can focus on implementing the business l
 In the IDE type underscore `_` twice to show the intelligence dropdown.
 
 ## :file_folder: Project Structure
-dbt Projects usually have the following structure
+dbt initiates the project following a 'Monolithic' approach (default one). This folder structure is suitable for small companies, however, you might face challenges down the line as you grow. 
+There are a few different [project approaches](https://medium.com/photobox-technology-product-and-design/practical-tips-to-get-the-best-out-of-data-building-tool-dbt-part-1-8cfa21ef97c5), the earlier you get it right, the less headache you will have down the line.
+
+Monolithic structure shown below, to change the project structure to a 'Layers' approach [read this.](https://medium.com/geekculture/how-to-structure-your-dbt-project-c62103deceb4)
 
 ```
 └── dbt-cloud-account
