@@ -1,5 +1,8 @@
 # data build tool
-
+<p align="center">
+  <img width="96" height="75" src="https://www.getdbt.com/_next/image?url=%2Fimg%2Flogos%2Fdbt-logo.svg&w=96&q=75">
+</p>
+---
 
 Links:
 
@@ -58,12 +61,33 @@ CTEs are encouraged, as well as simple and verbose queries. Similar to the Pytho
 
 As a best practice, cleaning and transformations should be considered two separate processes, meaning you should have queries that handle the cleaning step and another set of queries that will handle the transformation.
 
-Materialization can be set by either adding the following header at the top of the sql file 
+Materialization is set by either adding the following header at the top of the sql file 
 `{{ config(materialized='view') }}` or updating the dbt_project.yml file
 
-
-### :: Tests
+### :heavy_check_mark: Tests
 Typical tests to ensure data quality. Tests such as checks such as count, duplicates, unique keys.
+
+## :cloud: dbt Cloud Buttons
+- **Preview:** Executes the code in the active sql file by sending it to the data warehouse and retrieving the first 100 rows.
+- **Compile:** Adds the final sql code into the preview window resolving all ref functions into actual sql code. This won’t bring the code that creates the module being referenced with the ref function though.
+- **Format:** TBD.
+
+## :: Commands
+
+### :runner: dbt run
+Creates/Updates all tables and views by running all sql files in the model folder. By running this command all sql files will be executed, thus creating/updating all tables and views in the datawarehouse.
+
+> [!TIP]
+> Run only one file or folder using the `select` parameter.
+
+```
+dbt run
+dbt run --select model_name
+dbt run -s folder_name
+```
+
+### :: dbt test
+Creates/Updates all tables and views by running all sql files in the model folder. By running this command all sql files will be executed, thus creating/updating all tables and views in the datawarehouse.
 
 
 
@@ -71,6 +95,22 @@ Typical tests to ensure data quality. Tests such as checks such as count, duplic
 
 
 # Data Project README file
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
 
 The README file describes the essence of the project playing the most important role. Most visitors will simply scroll down about twice on the README and leave if they are not interested. So, the README file should provide the reason **why** to checkout your project!!!). 
 Bearing that in mind, your job is to: 
