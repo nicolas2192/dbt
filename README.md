@@ -15,6 +15,20 @@ Links:
 Data build tool (dbt) is an open-source command line tool that helps analysts and engineers transform data in their warehouse more effectively.
 It takes care of DDL commands while you can focus on implementing the business logic and designing great models. The code lies in git and it runs in the data warehouse. dbt is just an interface that facilitates the process.
 
+## :gear: Installation
+Steps to install dbt in locally or in the server;
+- Create python environment and activate it.
+- Install dbt-core and dbt adapter.
+- Create a .dbt folder.
+- Run dbt init command and follow the instructions.
+```
+python -m venv dbt-env 
+source dbt_env/Scripts/activate
+pip install dbt-core dbt-postgres
+mkdir .dbt
+dbt init
+```
+
 ## Tips & Tricks
 
 In the IDE type underscore `_` twice to show the intelligence dropdown.
