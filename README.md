@@ -9,6 +9,7 @@ Links:
 - https://docs.getdbt.com/docs/deploy/continuous-integration
 - https://docs.getdbt.com/guides/redshift?step=7
 - https://docs.getdbt.com/docs/cloud/dbt-cloud-ide/ide-user-interface#basic-layout
+- https://docs.getdbt.com/docs/build/custom-schemas
 - https://www.youtube.com/watch?v=5rNquRnNb4E&list=PLy4OcwImJzBLJzLYxpxaPUmCWp8j1esvT
 - https://www.youtube.com/watch?v=OLXkGB7krGo
 
@@ -106,7 +107,23 @@ dbt run -s folder_name
 ### :: dbt test
 Creates/Updates all tables and views by running all sql files in the model folder. By running this command all sql files will be executed, thus creating/updating all tables and views in the datawarehouse.
 
+Custom Schemas work around
 
+
+{% macro generate_schema_name(custom_schema_name, node) -%}
+
+    {%- set default_schema = target.schema -%}
+    {%- if custom_schema_name is none -%}
+
+        {{ default_schema }}
+
+    {%- else -%}
+
+        {{ custom_schema_name | trim }}
+
+    {%- endif -%}
+
+{%- endmacro %}
 
 
 
@@ -127,6 +144,20 @@ Creates/Updates all tables and views by running all sql files in the model folde
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 The README file describes the essence of the project playing the most important role. Most visitors will simply scroll down about twice on the README and leave if they are not interested. So, the README file should provide the reason **why** to checkout your project!!!). 
