@@ -61,9 +61,10 @@ Monolithic structure shown below, to change the project structure to a 'Layers' 
         └── results
 ```
 
+### :user: profile.yml
+
 ### :wrench: dbt_project.yml
 This is the project's configuration file. Here we set the project name, materialization modes, etc. If you don’t specify the materialization method, objects will be created as views (default)
-
 
 Materialization example, code snippet within dbt_project.yml
 
@@ -72,6 +73,20 @@ models:
   jaffle_shop:
     +materialized: table
 ```
+
+### :seedling: Seeds
+Seeds are CSV files in your dbt project (typically in your seeds directory), that dbt can load into your data warehouse using the dbt seed command.
+
+Seeds can be referenced in downstream models the same way as referencing models — by using the ref function.
+
+Because these CSV files are located in your dbt repository, they are version controlled and code reviewable. Seeds are best suited to static data which changes infrequently.
+
+Good use-cases for seeds:
+
+- A list of mappings of country codes to country names
+- A list of test emails to exclude from analysis
+- A list of employee account IDs
+
 
 ### :: Models
 Models folder will have all the queries that create the model.
